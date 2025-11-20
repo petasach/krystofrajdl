@@ -8,6 +8,12 @@
         * {
             margin: 0;
             padding: 0;
+            
+        }
+
+        :root {
+            --nav-icon-size: 5rem;
+            --dump-icon-size: 5rem;
         }
 
         body {
@@ -41,6 +47,30 @@
             justify-content: center;
             align-items: center;
             flex: 1;
+        }
+
+        .icon-domu  img {
+            position: absolute;
+            width: var(--nav-icon-size);
+            height: var(--nav-icon-size);
+            top: 5rem;
+            left: 0;
+        }
+
+        .icon-back img {
+            position: absolute;
+            width: var(--nav-icon-size);
+            height: var(--nav-icon-size);
+            top: 5rem;
+            left: var(--nav-icon-size);
+        }
+
+        .icon-dump img {
+            position: absolute;
+            width: var(--dump-icon-size);
+            height: var(--dump-icon-size);
+            top: 5rem;
+            right: 0;
         }
 
         .slides-wrapper {
@@ -101,6 +131,24 @@
     </header>
     <main>
         <section class="hero">
+            <div class="icon-domu">
+                <a href="index.html">
+                    <img src="main/domu.png">
+                </a>
+            </div>
+
+            <div class="icon-back">
+                <a href="index.html">
+                    <img src="main/zpet.png">
+                </a>    
+            </div>
+                
+            <div class="icon-dump">
+                <a href="dump.html">
+                    <img src="main/dump.png">
+                </a>
+            </div>
+
             <div class="slides-wrapper">
                 <div class="slideshow" id="slideshowA">
                     <a href="autor.html">
@@ -168,4 +216,3 @@
     </script>
 </body>
 </html>
-
