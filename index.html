@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kryštof Rajdl</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header-title">KRYŠTOF RAJDL</h1>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="icon-dump">
+                <a href="dump.html">
+                    <img src="main/dump.png">
+                </a>
+            </div>
+
+            <div class="slides-wrapper">
+                <div class="slideshow" id="slideshowA">
+                    <a href="autor.html">
+                        <img src="autor/autor1.png">
+                        <img src="autor/autor2.png">
+                        <img src="autor/autor3.png">
+                        <img src="autor/autor4.png">
+                    </a>
+                </div>
+
+                <div class="slideshow" id="slideshowB">
+                    <a href="obrazy.html">
+                        <img src="obrazy/obrazy1.png">
+                        <img src="obrazy/obrazy2.png">
+                        <img src="obrazy/obrazy3.png">
+                        <img src="obrazy/obrazy4.png">
+                    </a>
+                </div>
+
+                <div class="slideshow" id="slideshowC">
+                    <a href="text.html">
+                        <img src="text/text1.png">
+                        <img src="text/text2.png">
+                        <img src="text/text3.png">
+                        <img src="text/text4.png">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer-text">studio: Zelená 1745/22 | phone: +420 776 465 476 | mail: krysrajw@gmail.com | <a href="https://www.instagram.com/rajdlkrystof/" target="_blank">INSTAGRAM</a></p>
+    </footer>
+
+    <script>
+        function startSyncedSlideshow(id, interval = 3000, offset = 0) {
+            const slides = document.querySelectorAll(`#${id} img`);
+            
+            function showSlide() {
+                const now = Date.now();
+                const index = Math.floor((now + offset) / interval) % slides.length;
+                
+                slides.forEach((img, i) => img.style.display = i === index ? "block" : "none");
+            }
+
+            showSlide();
+            setInterval(showSlide, 100);
+        }
+
+        startSyncedSlideshow("slideshowC", 1500, 0);
+        startSyncedSlideshow("slideshowB", 1500, 500);
+        startSyncedSlideshow("slideshowA", 1500, 1000);
+    </script>
+</body>
+</html>
