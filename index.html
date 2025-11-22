@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="cs">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,6 +17,8 @@
             --header-footer-size: 2rem;
             --title-margin: 1.5rem;
             --borders: solid;
+            --slideshow-interval: 3000;
+
             --icon-offset: calc(var(--title-margin) * 2 + var(--header-footer-size));
         }
 
@@ -193,37 +195,6 @@
     </footer>
 
     <script>
-        /*function startSlideshow(id, interval = 3000, startDelay = 0) {
-            const slides = document.querySelectorAll(`#${id} img`);
-            let index = 0;
-
-            // Hide all slides initially
-            slides.forEach(img => img.style.display = "none");
-            slides[0].style.display = "block";
-
-            // Start after delay
-            setTimeout(() => {
-                // Immediately switch to the next slide ONCE
-                slides[index].style.display = "none";
-                index = (index + 1) % slides.length;
-                slides[index].style.display = "block";
-
-                // Then continue switching at the normal interval
-                setInterval(() => {
-                    slides[index].style.display = "none";
-                    index = (index + 1) % slides.length;
-                    slides[index].style.display = "block";
-                }, interval);
-            }, startDelay);
-        }
-
-        // Usage with offsets
-        startSlideshow("slideshowA", 3000, 1000);
-        startSlideshow("slideshowB", 3000, 2000);
-        startSlideshow("slideshowC", 3000, 3000);*/
-
-
-
         function startSyncedSlideshow(id, interval = 3000, offset = 0) {
             const slides = document.querySelectorAll(`#${id} img`);
             
@@ -234,14 +205,13 @@
                 slides.forEach((img, i) => img.style.display = i === index ? "block" : "none");
             }
 
-            showSlide(); // show immediately
-            setInterval(showSlide, 100); // update frequently (100ms is fine)
+            showSlide();
+            setInterval(showSlide, 100);
         }
 
-        // Example usage
-        startSyncedSlideshow("slideshowC", 3000, 0);
-        startSyncedSlideshow("slideshowB", 3000, 1000);
-        startSyncedSlideshow("slideshowA", 3000, 2000);
+        startSyncedSlideshow("slideshowC", 1500, 0);
+        startSyncedSlideshow("slideshowB", 1500, 500);
+        startSyncedSlideshow("slideshowA", 1500, 1000);
     </script>
 </body>
 </html>
