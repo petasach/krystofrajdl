@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +14,10 @@
         :root {
             --nav-icon-size: 5rem;
             --dump-icon-size: 5rem;
+            --header-footer-size: 2rem;
+            --title-margin: 1.5rem;
+            --borders: solid;
+            --icon-offset: calc(var(--title-margin) * 2 + var(--header-footer-size));
         }
 
         body {
@@ -23,14 +28,14 @@
 
         .header {
             width:100%;
-            line-height: 2rem;
+            line-height: var(--header-footer-size);
             text-align: center;
-            border-style: none none solid none;
+            border-style: none none var(--borders) none;
         }
 
         .header-title {
-            margin-top: 1.5rem;
-            margin-bottom: 1.5rem;
+            margin-top: var(--title-margin);
+            margin-bottom: var(--title-margin);
         }
 
         main {
@@ -48,11 +53,11 @@
             flex: 1;
         }
 
-        .icon-domu  img {
+        .icon-domu img {
             position: absolute;
             width: var(--nav-icon-size);
             height: var(--nav-icon-size);
-            top: 5rem;
+            top: var(--icon-offset);
             left: 0;
         }
 
@@ -60,7 +65,7 @@
             position: absolute;
             width: var(--nav-icon-size);
             height: var(--nav-icon-size);
-            top: 5rem;
+            top: var(--icon-offset);
             left: var(--nav-icon-size);
         }
 
@@ -68,7 +73,7 @@
             position: absolute;
             width: var(--dump-icon-size);
             height: var(--dump-icon-size);
-            top: 5rem;
+            top: var(--icon-offset);
             right: 0;
         }
 
@@ -101,14 +106,14 @@
 
         .footer {
             width:100%;
-            line-height: 2rem;
+            line-height: var(--header-footer-size);
             text-align: center;
-            border-style: solid none none none;
+            border-style: var(--borders) none none none;
         }
 
         .footer-text {
-            margin-top: calc(1.5rem);
-            margin-bottom: calc(1.5rem);
+            margin-top: var(--title-margin);
+            margin-bottom: var(--title-margin);
             display: inline-block;
         }
         .footer-text a {
@@ -120,6 +125,11 @@
             .slides-wrapper {
                 flex-direction: column;
             }
+
+            .hero {
+                margin-top: var(--nav-icon-size);
+                margin-bottom: var(--nav-icon-size);
+        }
         }
 
     </style>
@@ -183,7 +193,7 @@
     </footer>
 
     <script>
-        function startSlideshow(id, interval = 3000, startDelay = 0) {
+        /*function startSlideshow(id, interval = 3000, startDelay = 0) {
             const slides = document.querySelectorAll(`#${id} img`);
             let index = 0;
 
@@ -210,9 +220,28 @@
         // Usage with offsets
         startSlideshow("slideshowA", 3000, 1000);
         startSlideshow("slideshowB", 3000, 2000);
-        startSlideshow("slideshowC", 3000, 3000);
+        startSlideshow("slideshowC", 3000, 3000);*/
 
+
+
+        function startSyncedSlideshow(id, interval = 3000, offset = 0) {
+            const slides = document.querySelectorAll(`#${id} img`);
+            
+            function showSlide() {
+                const now = Date.now();
+                const index = Math.floor((now + offset) / interval) % slides.length;
+                
+                slides.forEach((img, i) => img.style.display = i === index ? "block" : "none");
+            }
+
+            showSlide(); // show immediately
+            setInterval(showSlide, 100); // update frequently (100ms is fine)
+        }
+
+        // Example usage
+        startSyncedSlideshow("slideshowC", 3000, 0);
+        startSyncedSlideshow("slideshowB", 3000, 1000);
+        startSyncedSlideshow("slideshowA", 3000, 2000);
     </script>
 </body>
 </html>
-
