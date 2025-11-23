@@ -6,8 +6,9 @@
 :root {
     --nav-icon-size: 5rem;
     --dump-icon-size: 5rem;
-    --header-footer-size: 1vw;
-    --title-margin: 2vw;
+    --hero-images-size: 20vw;
+    --header-footer-size: 1vh;
+    --title-margin: 5vh;
     --borders: solid;
 
     --icon-offset: calc(var(--title-margin) * 2 + var(--header-footer-size));
@@ -27,8 +28,8 @@ body {
 }
 
 .header-title {
-    margin-top: var(--title-margin);
-    margin-bottom: var(--title-margin);
+    padding-top: var(--title-margin);
+    padding-bottom: var(--title-margin);
 }
 
 main {
@@ -42,14 +43,14 @@ main {
     padding-top: calc(
         (100vh 
         - 2 * (var(--header-footer-size) + var(--title-margin) * 2)
-        - 20vw
+        - var(--hero-images-size)
         ) / 2
         - 3px
     );
     padding-bottom: calc(
         (100vh 
         - 2 * (var(--header-footer-size) + var(--title-margin) * 2)
-        - 20vw
+        - var(--hero-images-size)
         ) / 2
         - 3px
     );
@@ -88,14 +89,14 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 10vw;
+    gap: calc((100vw - var(--hero-images-size) * 3) / 4);
     width: 100%;
 }
 
 .slideshow {
     position: relative;
-    width: 20vw;
-    height: 20vw;
+    width: var(--hero-images-size);
+    height: var(--hero-images-size);
     overflow: hidden;
 }
 
@@ -113,14 +114,14 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 4vw;
+    gap: calc((100vw - var(--hero-images-size) * 4) / 5);
     width: 100%;
 }
 
 .images {
     position: relative;
-    width: 20vw;
-    height: 20vw;
+    width: var(--hero-images-size);
+    height: var(--hero-images-size);
     overflow: hidden;
 }
 
@@ -134,6 +135,27 @@ main {
 .scroll {
     padding: 4vw;
     border-style: var(--borders) none none none;
+}
+
+.columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: calc((100vw - var(--hero-images-size) * 3) / 4);
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5vh;
+}
+
+.article {
+    text-align: center;
 }
 
 .footer {
@@ -155,8 +177,8 @@ main {
 
 @media (max-width: 768px) {
     .hero {
-        margin-top: var(--nav-icon-size);
-        margin-bottom: var(--nav-icon-size);
+        padding-top: var(--nav-icon-size);
+        padding-bottom: var(--nav-icon-size);
     }
 
     .slides-wrapper {
@@ -175,5 +197,17 @@ main {
     .images {
         width: 70vw;
         height: 70vw;
-    }    
+    }
+
+    .scroll {
+        padding-left: 15vw;
+        padding-right: 15vw;
+        padding-top: var(--nav-icon-size);
+        padding-bottom: var(--nav-icon-size);
+    }
+
+    .columns {
+        flex-direction: column;
+        width: 100%;
+    }
 }
