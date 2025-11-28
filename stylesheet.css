@@ -4,6 +4,7 @@
 }
 
 :root {
+    --font: "Geologica"; /*Schibsted+Grotesk*/
     --nav-icon-size: 5rem;
     --dump-icon-size: 5rem;
     --hero-images-size: 20vw;
@@ -15,6 +16,7 @@
 }
 
 body {
+    font-family: var(--font);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
