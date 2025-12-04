@@ -4,8 +4,9 @@
 }
 
 :root {
-    --font: "Geologica"; /*Schibsted+Grotesk*/
-    --nav-icon-size: 5rem;
+    --font: "Geologica"; /*Schibsted+Grotesk*/ /*Geologica*/
+    --nav-icon-size: 2rem;
+    --icon-padding: 1rem;
     --dump-icon-size: 5rem;
     --hero-images-size: 20vw;
     --header-footer-size: 1vh;
@@ -27,6 +28,7 @@ body {
     line-height: var(--header-footer-size);
     text-align: center;
     border-style: none none var(--borders) none;
+    border-width: 2px;
 }
 
 .header-title {
@@ -63,6 +65,7 @@ main {
 }
 
 .icon-domu img {
+    padding: var(--icon-padding);
     position: absolute;
     width: var(--nav-icon-size);
     height: var(--nav-icon-size);
@@ -71,11 +74,12 @@ main {
 }
 
 .icon-back img {
+    padding: var(--icon-padding);
     position: absolute;
     width: var(--nav-icon-size);
     height: var(--nav-icon-size);
     top: var(--icon-offset);
-    left: var(--nav-icon-size);
+    left: calc(var(--nav-icon-size) + var(--icon-padding));
 }
 
 .icon-dump img {
@@ -137,6 +141,7 @@ main {
 .scroll {
     padding: 4vw;
     border-style: var(--borders) none none none;
+    border-width: 2px;
 }
 
 .columns {
@@ -165,6 +170,7 @@ main {
     line-height: var(--header-footer-size);
     text-align: center;
     border-style: var(--borders) none none none;
+    border-width: 2px;
 }
 
 .footer-text {
@@ -211,5 +217,33 @@ main {
     .columns {
         flex-direction: column;
         width: 100%;
+    }
+}
+
+/* FOOTER TICKER */
+.ticker {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-track {
+    display: inline-block;
+    white-space: nowrap;
+    animation: tickerScroll 15s linear infinite;
+}
+
+/* Duplicate spans inside track */
+.ticker-track span {
+    padding-right: 4rem; /* small spacing between repetitions, no big gap */
+    /*font-size: 1rem;*/
+}
+
+@keyframes tickerScroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
     }
 }
