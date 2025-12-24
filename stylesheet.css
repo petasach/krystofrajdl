@@ -7,7 +7,7 @@
     --font: "Geologica"; /*Schibsted+Grotesk*/ /*Geologica*/
     --nav-icon-size: 2rem;
     --icon-padding: 1rem;
-    --dump-icon-size: 5rem;
+    --dump-icon-size: 6rem;
     --hero-images-size: 20vw;
     --header-footer-size: 1vh;
     --title-margin: 5vh;
@@ -83,6 +83,7 @@ main {
 }
 
 .icon-dump img {
+    padding: calc(var(--icon-padding) / 2);
     position: absolute;
     width: var(--dump-icon-size);
     height: var(--dump-icon-size);
@@ -166,7 +167,6 @@ main {
 }
 
 .footer {
-    font-size: 1;
     width:100%;
     line-height: var(--header-footer-size);
     text-align: center;
@@ -175,7 +175,6 @@ main {
 }
 
 .footer-text {
-    font-size: 1;
     margin-top: var(--title-margin);
     margin-bottom: var(--title-margin);
     display: inline-block;
@@ -220,18 +219,20 @@ main {
         flex-direction: column;
         width: 100%;
     }
+
+    .ticker-track span {
+        font-size: 0.5 rem;
+    }
 }
 
 /* FOOTER TICKER */
 .ticker {
-    font-size: 1;
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
 }
 
 .ticker-track {
-    font-size: 1;
     display: inline-block;
     white-space: nowrap;
     animation: tickerScroll 15s linear infinite;
@@ -239,8 +240,7 @@ main {
 
 /* Duplicate spans inside track */
 .ticker-track span {
-    padding-right: 4rem; /* small spacing between repetitions, no big gap */
-    /*font-size: 1rem;*/
+    padding-right: 4rem;
 }
 
 @keyframes tickerScroll {
@@ -251,4 +251,3 @@ main {
         transform: translateX(-50%);
     }
 }
-
