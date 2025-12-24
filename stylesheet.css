@@ -240,7 +240,7 @@ main {
 /* Duplicate spans inside track */
 .ticker-track span {
     padding-right: 4rem; /* small spacing between repetitions, no big gap */
-    font-size: 1rem;
+    /*font-size: 1rem;*/
 }
 
 @keyframes tickerScroll {
@@ -251,3 +251,4 @@ main {
         transform: translateX(-50%);
     }
 }
+
