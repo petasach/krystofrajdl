@@ -166,6 +166,22 @@ main {
     text-align: center;
 }
 
+.grid {
+    margin-left: 12vw;
+    margin-right: 12vw;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    gap: 4vw;
+    grid-template-columns: 20vw 20vw 20vw;
+}
+
+.grid img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
 .footer {
     width:100%;
     line-height: var(--header-footer-size);
